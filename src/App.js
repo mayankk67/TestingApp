@@ -1,13 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Pdflink from './components/PdfFromLink';
+import Pdftext from './components/PdfFromText';
+import Hompage from './components/Hompage';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import Routex from './components/routes';
 
 function App() {
   return (
+    <BrowserRouter>
     <div>
-      <h1>Welcome to my calculator</h1>
+      <header >
+      <Routex />
+      <Switch>
+          <Route path='/' exact component={Hompage}></Route>
+          <Route path='/pdfFromLink' component={Pdflink}></Route>
+          <Route path='/pdfFromText' component={Pdftext}></Route>
+      </Switch>
+      </header>
     </div>
-    )
+    </BrowserRouter>
+  );
 }
 
 export default App;
